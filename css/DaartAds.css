@@ -1,0 +1,31 @@
+daart-ads {
+    width: 100%;
+    height: 100%;
+}
+
+.da-copyright a img {
+    transition: all .5s;
+    width: 2.5%;
+}
+
+.da-copyright a {
+    position: relative;
+    text-align: left;
+}
+
+.da-copyright:hover a img {
+    transition: all .5s;
+    transform: scale(1.3)
+}
+
+.da-banner img {
+    transition: all .5s;
+    border-radius: 4px;
+}
+
+
+.da-banner:hover img {
+    transition: all .5s;
+    border-radius: 8px;
+    transform: translateY(-5px);
+}
