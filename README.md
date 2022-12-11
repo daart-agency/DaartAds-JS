@@ -10,14 +10,14 @@ You can use this library to access the DaartAds APIs.
 #### Using CDN
 ```html
 <!-- CSS -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/daart-agency/DaartAds-JS/css/DaartAds.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/daart-agency/DaartAds-JS@main/css/DaartAds.min.css">
 
 
 <!-- jQuery (If you don't have one) -->
 <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
 
 <!-- JS -->
-<script src="https://cdn.jsdelivr.net/gh/daart-agency/DaartAds-JS/js/DaartAds.min.js" daart-token="API_TOKEN"></script>
+<script src="https://cdn.jsdelivr.net/gh/daart-agency/DaartAds-JS@main/js/DaartAds.min.js" daart-token="API_TOKEN"></script>
 
 <!-- Change The value of daart-token="" with your API_TOKEN -->
 

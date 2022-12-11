@@ -83,7 +83,7 @@ class DaartAds {
                         {
                             api.GetAds(adsize).then((res) => {
                                 $.each(res, (key,val) => {
-                                    $(this).append(`<a class="da-banner" target="_blank" href="${val['Callback']}"><img src="${val['AdDetails']['image']}" alt="Daartads banner"></a><div class="da-copyright"><a href="https://daartads.com?utm_source=daartads&utm_medium=banner&utm_campaign=logo_click" title="Advertising with Daart Ads"><img src="https://cdn.jsdelivr.net/gh/daart-agency/DaartAds-JS/img/logo/daartads-logo.png" alt="Daartads banner"></a></div>`);
+                                    $(this).append(`<a class="da-banner" target="_blank" href="${val['Callback']}"><img src="${val['AdDetails']['image']}" alt="Daartads banner"></a><div class="da-copyright"><a href="https://daartads.com?utm_source=daartads&utm_medium=banner&utm_campaign=logo_click" title="Advertising with Daart Ads"><img src="https://cdn.jsdelivr.net/gh/daart-agency/DaartAds-JS@main/img/logo/daartads-logo.png" alt="Daartads banner"></a></div>`);
                                 })
                             })
                         }
