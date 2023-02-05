@@ -5,7 +5,7 @@
 /**
  * @summary     DaartAgency.DaaertAds
  * @description Smart Ads jQuery Library by Daart Company
- * @version     1.0.0
+ * @version     1.1.0
  * @author      Alex Javadi
  * @contact     https://daartads.com
  * @copyright   Daart Agency
@@ -25,41 +25,30 @@ class DaartAds {
 
     constructor(Token) {
         this.#_token = Token;
-        this.#_DAART_API_URL = "https://daartads.com/advertising/apiAdv4.php"
+        this.#_DAART_API_URL = "https://api.daartads.com/api/v1/GetAds"
     }
 
-    async GetAds(adSize) {
+    async GetAds() {
         var data = [];
+        var _token = this.#_token;
         await $.ajax({
-            method: "POST",
+            method: "GET",
             url: this.#_DAART_API_URL,
-            data: {
-                "token" : this.#_token,
-                "adsize": adSize
+            beforeSend: function (xhr) {
+                xhr.setRequestHeader("Authorization", "Bearer " + _token);
             },
             dataType:"json",
             crossDomain: true,
             statusCode: {
-                415: function() {
+                401: function() {
                     console.error("The Daart Ads API key is invalid, please double check it.")
                 }
             }
         }).done((res) => {
-            $.each(res['data'], (key,val) => {
-                data.push({
-                    "AdDetails": val,
-                    "Callback": this.constructor.GetAdCallBack(val['Cid'],val['Source'],val['adsize'])
-                });
-            })
+            data.push(res['Result']);
         })
 
         return Promise.resolve(data);
-    }
-
-
-    static GetAdCallBack(Cid,Source,adSize)
-    {
-        return `https://daartads.com/CP.php?Cid=${Cid}&Source=${Source}&adsize=${adSize}`;
     }
 }
 
@@ -77,20 +66,9 @@ class DaartAds {
                     console.info("Deployment of the Daart Ads library was successful.")
 
                     $("daart-ads").each(function () {
-                        let adsize = $(this).attr('daart-adsize')
-                        let cr_logo_white = $(this).attr('daart-logo-white') !== undefined;
-                        if(typeof adsize !== undefined && adsize.length > 0)
-                        {
-                            api.GetAds(adsize).then((res) => {
-                                $.each(res, (key,val) => {
-                                    $(this).append(`<a class="da-banner" target="_blank" href="${val['Callback']}"><img src="${val['AdDetails']['image']}" alt="Daartads banner"></a><div class="da-copyright"><a href="https://daartads.com?utm_source=daartads&utm_medium=banner&utm_campaign=logo_click" title="Advertising with Daart Ads"><img src="https://cdn.jsdelivr.net/gh/daart-agency/DaartAds-JS@main/img/logo/daartads-logo.png" alt="Daartads banner"></a></div>`);
-                                })
-                            })
-                        }
-                        else {
-                            alert("DaartAds critical problem found\ncheck your browser developer console for more information")
-                            console.error("Please verify the tag for one of your daart-ads that lacks a adsize key.")
-                        }
+                        api.GetAds().then((res) => {
+                            $(this).append(`<a class="da-banner" target="_blank" href="${res[0]['url']}"><img src="${res[0]['image_url']}" alt="Daartads banner"></a><div class="da-copyright"><a href="https://daartads.com?utm_source=daartads&utm_medium=banner&utm_campaign=logo_click" title="Advertising with Daart Ads"><img src="https://cdn.jsdelivr.net/gh/daart-agency/DaartAds-JS@main/img/logo/daartads-logo.png" alt="Daartads banner"></a></div>`);
+                        })
                     })
                     
                     
