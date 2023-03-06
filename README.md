@@ -45,13 +45,14 @@ You can use this library to access the DaartAds APIs.
 ```html
 <!-- Just copy the code below and paste it wherever you imagine you might need to utilise our API. -->
 
-<daart-ads daart-adsize="CHOSEN_SIZE"></daart-ads>
+<daart-ads daart-adsize="CHOSEN_SIZE" daart-adsize-mobile="CHOSEN_SIZE_MOBILE"></daart-ads>
 ```
-- From the table you may see below, you should pick a size for _```daart-adsize```_.
+- From the table you may see below, you should pick a size for _```daart-adsize```_ as well as _```daart-adsize-mobile```_.
 
 ## AdSize
 | SizeID | Width * Height |
 |--------|----------------|
+| 0  | Random W*H  |
 | 1  | 720 * 480 |
 | 2  | 728 * 90  |
 | 3  | 480 * 320 |
