@@ -79,7 +79,7 @@ class DaartAds {
                             api.GetAds(adsize).then((res) => {
                                 if(Object.getPrototypeOf(res[0]) === Object.prototype)
                                 {
-                                    $(this).append(`<a class="da-banner" target="_blank" href="${res[0]['url']}"><img src="${res[0]['image_url']}" alt="Daartads banner"></a><div class="da-copyright"><a href="https://daartads.com?utm_source=daartads&utm_medium=banner&utm_campaign=logo_click" title="Advertising with Daart Ads"><img src="https://cdn.jsdelivr.net/gh/daart-agency/DaartAds-JS@main/img/logo/daartads-logo.png" alt="Daartads banner"></a></div>`);
+                                    $(this).append(`<a class="da-banner" target="_blank" href="${res[0]['url']}"><img src="${res[0]['image_url']}" alt="Daartads banner"></a><div class="da-copyright"><a href="https://daartads.com?utm_source=daartads&utm_medium=banner&utm_campaign=logo_click" title="Advertising with Daart Ads"><!-- <img src="https://cdn.jsdelivr.net/gh/daart-agency/DaartAds-JS@main/img/logo/daartads-logo.png" alt="Daartads banner"> --></a></div>`);
                                 }
                                 else
                                 {
