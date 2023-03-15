@@ -1,11 +1,11 @@
-/*! DaartAds 1.1.2
- * ©2022 Alex Javadi, Daart Agency - MIT Licence
+/*! DaartAds 1.1.3
+ * ©2022 - 2023 Alex Javadi, Daart Agency - MIT Licence
  */
 
 /**
  * @summary     DaartAgency.DaaertAds
  * @description Smart Ads jQuery Library by Daart Company
- * @version     1.1.2
+ * @version     1.1.3
  * @author      Alex Javadi
  * @contact     https://daartads.com
  * @copyright   Daart Agency
@@ -79,7 +79,7 @@ class DaartAds {
                             api.GetAds(adsize).then((res) => {
                                 if(Object.getPrototypeOf(res[0]) === Object.prototype)
                                 {
-                                    $(this).append(`<a class="da-banner" target="_blank" href="${res[0]['url']}"><img src="${res[0]['image_url']}" alt="Daartads banner"></a><div class="da-copyright"><a href="https://daartads.com?utm_source=daartads&utm_medium=banner&utm_campaign=logo_click" title="Advertising with Daart Ads"></a></div>`);
+                                    $(this).append(`<a class="da-banner" rel="nofollow" target="_blank" href="${res[0]['url']}"><img src="${res[0]['image_url']}" alt="Daartads banner"></a><div class="da-copyright"><a href="https://daartads.com?utm_source=${window.location.host}&utm_medium=website&utm_campaign=under_campaign_logo" title="Advertising with Daart Ads"><img src="https://cdn.jsdelivr.net/gh/daart-agency/DaartAds-JS@latest/img/logo/daartads-logo.png" alt="Daartads banner"></a></div>`);
                                 }
                                 else
                                 {
